@@ -1,0 +1,61 @@
+[{
+	"title": "Lingus",
+	"artist": "Snarky Puppy",
+	"genres": ["Jazz Fusion", "Jazz", "Rock", "Funk"],
+	"year": 2014
+},
+{
+	"title": "Limelight",
+	"artist": "Rush",
+	"genres": ["Rock", "Progressive Rock"],
+	"year": 1981
+},
+{
+	"title": "The Spirit of Radio",
+	"artist": "Rush",
+	"genres": ["Rock", "Progressive Rock"],
+	"year": 1980
+},
+{
+	"title": "Reelin' in the Years",
+	"artist": "Steely Dan",
+	"genres": ["Jazz Rock", "Rock"],
+	"year": 1972
+},
+{
+	"title": "That's All",
+	"artist": "Genesis",
+	"genres": ["Pop Rock", "Rock"],
+	"year": 1983
+},
+{
+	"title": "More Than a Feeling",
+	"artist": "Boston",
+	"genres": ["Rock"],
+	"year": 1976
+},
+{
+	"title": "What about Me?",
+	"artist": "Snarky Puppy",
+	"genres": ["Jazz Fusion", "Jazz", "Rock", "Funk"],
+	"year": 2014
+},
+{
+	"title": "25 or 6 to 4",
+	"artist": "Chicago",
+	"genres": ["Rock", "Jazz Rock"],
+	"year": 1970
+},
+{
+	"title": "Birdland",
+	"artist": "Weather Report",
+	"genres": ["Jazz Fusion", "Jazz"],
+	"year": 2014
+},
+{
+	"title": "Dean Town",
+	"artist": "Vulfpeck",
+	"genres": ["Funk"],
+	"year": 2016
+}
+]
