@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body, div {
+            margin: 0;
+        }
+        #data {
+            width: 40%;
+            margin: 0;
+            display: inline-block;
+        }
+        #genres {
+            margin-right: 5px;
+            padding-top: 50px;
+            width: 40%;
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script language="javascript">
+        
+        $.get( "https://ahamburg23.github.io/CS20-JSON-Setlist/setlist.json", 
+            function( data ) {
+                str = JSON.stringify(data);
+                $("#stringify").html(str +"<br/>");
+            
+                strHTML= "<ul>";
+                let genres = [];
+
+                data.forEach(song => { 
+                    strGenre = "";
+                    (song.genres).forEach(genre => {
+                        if (!(genres.includes(genre))) {
+                            genres.push(genre);
+                        }
+
+                        if (strGenre != "") {
+                            strGenre += ", ";
+                        }
+                        strGenre += genre;
+                    })
+                    strHTML += "<br/>" 
+                            + song.title + "<br/>" 
+                            + "Artist: " + song.artist + "<br/>"
+                            + "Genre: " + strGenre + "<br/>"
+                            + "Year: " + song.year + "<br/>";
+                }) 
+            strHTML += "</ul>";
+            $("#data").html(strHTML);
+            writeSelect(genres);
+            }
+        );
+
+        function writeSelect(genres) {
+            var t = "";
+            t = "<select name='genres' size='1'>";
+            for (i = 0; i < genres.length; i++) {
+                t += "<option>" + genres[i] + "</option>";
+            }
+            t += "</select>"; 
+            
+            $("#genreSelect").html(t);
+        }
+
+        function filterSongs() {
+            let selected = $('#genres').find(":selected").text();
+            console.log("Selected: " + selected);
+            var filterString = "";
+            $.get( "https://ahamburg23.github.io/CS20-JSON-Setlist/setlist.json",
+            function( data ) {
+                data.forEach(song => {
+                    let foundGenre = false;
+                    (song.genres).forEach(genre => {
+                        if (genre === selected && !foundGenre) {
+                            console.log("got here");
+                            filterString += song.title + "<br/>";
+                            console.log("line 83 " + filterString);
+                            isGenre = true;
+                        }
+                    })
+                })
+                console.log("Filter string: " + filterString);
+                $("#filtered").html(filterString);
+            });
+
+            
+        }
+    </script>
+
+    <div id="stringify">&nbsp;</div>
+    <div id="data">&nbsp;</div>
+
+    <div id="genres">
+        <form>
+            <select id="genreSelect"></select>
+
+            <input type = "button" onclick="filterSongs()" value = "Filter" />
+        </form>
+        <br/>
+        <div id="filtered">&nbsp;</div>
+    </div>
+</body>
+</html>
