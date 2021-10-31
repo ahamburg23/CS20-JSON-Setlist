@@ -70,7 +70,6 @@
 
         function filterSongs() {
             let selected = $('#genres').find(":selected").text();
-            console.log("Selected: " + selected);
             var filterString = "";
             $.get( "https://ahamburg23.github.io/CS20-JSON-Setlist/setlist.json",
             function( data ) {
@@ -78,14 +77,11 @@
                     let foundGenre = false;
                     (song.genres).forEach(genre => {
                         if (genre === selected && !foundGenre) {
-                            console.log("got here");
                             filterString += song.title + "<br/>";
-                            console.log("line 83 " + filterString);
                             isGenre = true;
                         }
                     })
                 })
-                console.log("Filter string: " + filterString);
                 $("#filtered").html(filterString);
             });
 
